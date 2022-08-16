@@ -1,0 +1,76 @@
+@import './color';
+
+// the toggler
+.btn{
+  cursor: pointer;
+  transition: all .3s;
+  border: none;
+  width: 100%;
+  max-width: 300px;
+  padding: 10px;
+}
+
+// the toggler button
+.nav-toggler{  
+  border-radius: 30px;
+  position: relative;
+  box-shadow: 0px 2px 5px rgb(0 0 0 / 20%);
+  background: var(--white);  
+  &::before,  
+  &::after{
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 2px;
+    background-color: #323334;    
+    transition: all .4s;
+  }
+  &::before{transform: translate(-50%, 6px);}
+  &::after{transform: translate(-50%, -8px);}
+}
+// the X in the toggler
+.close-icon{
+  span{transform: scale(0);}
+  &::before{transform: translate(-50%, 0px) rotate(45deg) !important;}
+  &::after{transform: translate(-50%, -2px) rotate(-45deg) !important;}    
+}
+
+// span in toggler
+.burger-icon{
+  width: 100%;
+  height: 2px;
+  background-color: #323334;
+  display: block;
+  transition: all .5s;
+  transform-origin: left;
+}
+
+
+
+// call to action button
+.cta-btn{
+  width: 50%;
+  max-width: 200px;
+  background-color: var(--light-red);
+  color: var(--white);
+  border-radius: 5px;   
+  position: relative;
+  font-family: 'Barlow Condensed';
+  font-weight: 700;
+  font-size: 15px;        
+  &::before{
+    content: "to see a preview";
+    position: absolute;
+    transform: translateX(115%);
+    right: 0;
+    color: var(--gray-blue);
+    font-weight: 400;
+    font-size: 0.9em;
+    letter-spacing: 2px;
+    line-height: 1.5;
+  }
+  transition: all .3s;
+  &:hover{
+    background-color: lighten(#ff5c5c, $amount: 10);
+  }
+}

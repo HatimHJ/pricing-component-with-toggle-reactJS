@@ -1,0 +1,100 @@
+/* ================================
+  All Common Styles In This Project
+  ================================ */
+body{
+  // text  
+  --lg:linear-gradient(120deg, #a3a8f0 , #696fdd);
+  --white-blue:#f6f6fe;
+  --gray-blue:#6d708d;
+  --dark-gray:#6d708d;
+  --dark-gray:#494c5f;
+  --white:#fff;
+
+}
+*{
+}
+
+.sr-only{
+  position: absolute;
+  top: -10rem;
+  left: -10rem;
+  visibility: hidden;
+  width: 1px;height: 10px;
+}
+
+a{
+  color: var(--dark-blue);      
+  transition: all .9s ;
+}
+
+.App{
+  background-color: var(--white-blue);
+  position: relative;
+  min-height: 100vh;
+  background-image: url(./images/bg-top.svg);    
+  background-position: 170px -40px;
+  background-repeat: no-repeat;
+  @include tv{
+    background-position: top right, bottom left;
+    background-image: url(./images/bg-top.svg), url(./images/bg-bottom.svg);
+  }
+  // heading
+  .heading{
+    color: var(--gray-blue);
+    padding-top: 50px;
+  }
+  // toggler
+  .toggler-wrapper{
+    padding: 10px 0;
+    position: relative;
+    max-width: 340px;
+    margin-inline: auto;
+    &::before,
+    &::after{
+      position: absolute;
+      color: #6d708d;
+      top: 50%;    
+    }
+    &::before{
+      content: 'Annually';
+      left: 10%;
+    }
+    &::after{
+      content: 'Monthly';
+      right: 10%;
+      
+    }
+    input{
+      visibility: hidden;
+      width: 0;height: 0;
+    }
+    label.toggler-label{
+      position: relative;
+      background: var(--lg);
+      width: 60px;
+      height: 30px;
+      border-radius: 30px;
+      display: block;
+      margin-inline: auto;
+      cursor: pointer;
+      transition: all .5s;
+      &::before{
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background: #fff;
+        border-radius: 50%;
+        transform: translate(10%, 5px);
+        transition: all .4s;
+      }
+      &:hover{opacity: .5;}
+    }
+    input:checked + label{
+      background: linear-gradient(-45deg, #a3a8f0 , #696fdd);
+    }
+    input:checked + label::before{
+      transform: translate(-110%, 5px);
+    }
+  }
+}
